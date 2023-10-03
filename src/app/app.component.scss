@@ -1,45 +1,68 @@
-.mat-card-simples{
-    max-width: 300px;
-    background-color: aliceblue;
-    margin-top: 10px;
+// General styles
+body {
+  font-family: 'Creepster', cursive;
+  background-image: url("https://i2.wp.com/itsmekatrinalee.com/wp-content/uploads/2021/09/82e39363-5f68-4c16-b911-debc31a0a922.png?resize=576%2C1024");
+  background-repeat: repeat;
+  background-color: #282828;
+  color: #FFA500;
+}
+
+h1 {
+  background-color: #282828;
+  text-shadow: 2px 2px 4px #FF4500;
+}
+
+// Styles for mat-card
+mat-card {
+  width: 26rem;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  background-color: #383838;
+
+  // Styles for mat-card-title
+  mat-card-title {
+    font-size: 20px;
+    color: #FF4500;
   }
-  
-  .card-insercao{
-    max-width: 300px;
-    animation: rainbow-background 5s ease infinite;
-    background-color: #ff6b6b; /* frame vermelho inicial */
-    border-radius: 4%;
-    margin: 10px;
+
+  // Styles for mat-card-content
+  mat-card-content {
+    font-size: 16px;
+    color: #FF8C00;
+  }
+
+  // Styles for mat-card-footer
+  mat-card-footer {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: solid;
-    border-color: rgb(217, 233, 233);
+    justify-content: flex-end;
   }
-  
-  .mat-card-title {
-    background-color: white;
-    padding: 0.42rem;
-    border-radius: 4%;
+}
+
+// Styles for mat-form-field
+mat-form-field {
+  display: block;
+  margin-bottom: 15px;
+}
+
+// Styles for button
+button {
+  background-color: #FF4500;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #FF6347;
   }
-  
-  .mat-card-content {
-    background-color: aliceblue;
-    margin: 0.42rem;
-    border-radius: 4%;
-  }
-  
-  .mat-form-principal {
-    margin-left: 0.42rem;
-  }
-  
-  @keyframes rainbow-background {
-    0% { background-color: #ff6b6b; } /* vermelho */
-    14% { background-color: #ffae42; } /* laranja */
-    28% { background-color: #fff542; } /* amarelo */
-    42% { background-color: #42ff95; } /* verde */
-    57% { background-color: #4291ff; } /* azul */
-    71% { background-color: #8a42ff; } /* roxo */
-    85% { background-color: #ff42f5; } /* rosa */
-    100% { background-color: #ff6b6b; } /* vermelho */
-  }
+}
+
+// Styles for mat-icon
+mat-icon {
+  margin-right: 5px;
+  color: #FFD700;
+}

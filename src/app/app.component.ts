@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Comida } from 'src/models/comida';
+import { Comida } from 'src/shared/comida';
+import {FormControl} from "@angular/forms";
 
 @Component({
   selector: 'app-root',
@@ -7,13 +8,18 @@ import { Comida } from 'src/models/comida';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app-lista-feira';
+  title = 'Lista de Compras';
 
+  private _formControl = new FormControl();
   private _comidas: Array<Comida> = new Array<Comida>();
   private _comida: Comida = new Comida();
 
   get comida():Comida {
     return this._comida;
+  }
+
+  get formControl():FormControl {
+    return this._formControl;
   }
 
   set comida(nova: Comida) {
@@ -24,9 +30,14 @@ export class AppComponent {
     return this._comidas;
   }
 
+  //INSERIR TANTO TRATA O CENÁRIO DE INSERÇÃO QUANTO ALTERAÇÃO
   public inserir():void {
-    if (this.localizar(this._comida.nome) !== -1) {
+    let idx: number = this.localizar(this._comida.nome);
+    if (idx === -1) {
       this._comidas.push(this._comida);
+      this._comida = new Comida();
+    } else {
+      this._comidas[idx] = this._comida;
       this._comida = new Comida();
     }
   }
@@ -40,12 +51,12 @@ export class AppComponent {
     }
   }
 
-  public localizar(nome:string) {
+  public localizar(nome:string): number {
     let idx = this._comidas.findIndex((c) => (c.nome === nome));
     if (idx === -1) {
       return -1;
     } else {
-      return this._comidas[idx];
+      return idx;
     }
   }
 

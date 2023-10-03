@@ -1,23 +1,45 @@
+<body>
 <h1>{{title}}</h1>
+
+<mat-autocomplete #auto="matAutocomplete">
+  <mat-option *ngFor="let option of comidas" [value]="option">
+    {{option.nome}}
+  </mat-option>
+</mat-autocomplete>
+
+<mat-form-field appearance="fill">
+  <input type="text"
+         placeholder="Pesquisa"
+         aria-label="Pesquisa"
+         matInput
+         [formControl]="formControl"
+         [matAutocomplete]="auto">
+</mat-form-field>
+
 
 <mat-card id="card-insercao">
   <mat-card-title>Inserir comida</mat-card-title>
   <mat-card-content>
     <div id="mat-form-principal">
-      <mat-form-field>  
-        <mat-label>Quantidade</mat-label>
-        <input matInput [(ngModel)]="comida.quantidade" placeholder="Digite a quantidade">
-      </mat-form-field>
-      <mat-form-field>  
+      <mat-form-field>
         <mat-label>Nome</mat-label>
         <input matInput [(ngModel)]="comida.nome" placeholder="Digite o nome">
       </mat-form-field>
-      <mat-form-field>  
+      <mat-form-field>
+        <mat-label>Quantidade</mat-label>
+        <input matInput [(ngModel)]="comida.quantidade" placeholder="Digite a quantidade">
+      </mat-form-field>
+      <mat-form-field>
         <mat-label>Preco</mat-label>
         <input matInput [(ngModel)]="comida.preco" placeholder="Digite o valor">
       </mat-form-field>
     </div>
   </mat-card-content>
+  <mat-card-footer>
+    <button mat-raised-button mat-color="basic" (click)="inserir()">
+      <mat-icon>add</mat-icon>Inserir
+    </button>
+  </mat-card-footer>
 </mat-card>
 <mat-card *ngFor="let comida of comidas" class="mat-card-simples">
   <mat-card-header>
@@ -28,3 +50,4 @@
     Valor Total: {{comida.valorTotal}}
   </mat-card-content>
 </mat-card>
+</body>
