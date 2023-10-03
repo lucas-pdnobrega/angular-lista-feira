@@ -34,9 +34,11 @@ export class AppComponent {
   public inserir():void {
     let idx: number = this.localizar(this._comida.nome);
     if (idx === -1) {
+      this._comida.atualizarValorTotal();
       this._comidas.push(this._comida);
       this._comida = new Comida();
     } else {
+      this._comida.atualizarValorTotal();
       this._comidas[idx] = this._comida;
       this._comida = new Comida();
     }

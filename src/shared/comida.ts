@@ -9,7 +9,6 @@ export class Comida {
         this._quantidade = quantidade;
         this._nome = nome;
         this._preco = preco;
-        this.atualizarValorTotal();
     }
 
     get quantidade():number {
