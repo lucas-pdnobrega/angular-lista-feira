@@ -8,7 +8,7 @@ import {FormControl} from "@angular/forms";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Lista de Compras';
+  title = 'Lista de Feira para Halloween';
 
   private _formControl = new FormControl();
   private _comidas: Array<Comida> = new Array<Comida>();
